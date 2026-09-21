@@ -14,12 +14,22 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.0",
-    "moment": "^2.29.4"
+    "moment": "^2.29.4",
+    "mongodb": "^3.2.6",
+    "mongoose": "^6.2.9"
   },
   "devDependencies": {
     "nodemon": "^3.0.2",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.9.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jahon0112/burak.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jahon0112/burak/issues"
+  },
+  "homepage": "https://github.com/Jahon0112/burak#readme"
 }
