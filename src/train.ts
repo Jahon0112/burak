@@ -15,7 +15,7 @@ function consgetSquareNumbers(
   }
   return newArr;
 }
-console.log(consgetSquareNumbers([1, 2, 3, 4, 5]));
+console.log(consgetSquareNumbers([1, 2, 3, 4, 5, 7]));
 //2-way
 // function consgetSquareNumbers(arr) {
 //   const count = 0;
