@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import { T } from "../libs/types/common";
 import MemberService from "../models/Member.service";
-import { MemberInput } from "../libs/types/member";
+import { LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
 
 const restaurantController: T = {};
-restaurantController.goHome = (req: Response, res: Response) => {
+restaurantController.goHome = (req: Request, res: Response) => {
   try {
     console.log("goHome");
     //LOGIC
@@ -17,7 +17,7 @@ restaurantController.goHome = (req: Response, res: Response) => {
   }
 };
 
-restaurantController.getLogin = (req: Response, res: Response) => {
+restaurantController.getLogin = (req: Request, res: Response) => {
   try {
     console.log("getLogin");
     res.send("Login Page");
@@ -26,7 +26,7 @@ restaurantController.getLogin = (req: Response, res: Response) => {
   }
 };
 
-restaurantController.getSignup = (req: Response, res: Response) => {
+restaurantController.getSignup = (req: Request, res: Response) => {
   try {
     console.log("getSignup");
     res.send("Signup Page");
@@ -35,12 +35,17 @@ restaurantController.getSignup = (req: Response, res: Response) => {
   }
 };
 
-restaurantController.processLogin = (req: Response, res: Response) => {
+restaurantController.processLogin = async (req: Request, res: Response) => {
   try {
     console.log("processLogin");
-    res.send("DONE");
+    console.log("body:", req.body);
+    const input: LoginInput = req.body;
+    const memberService = new MemberService();
+    const result = await memberService.processLogin(input);
+    res.send(result);
   } catch (err) {
     console.log("Error, processLogin:", err);
+    res.send(err);
   }
 };
 
