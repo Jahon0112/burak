@@ -3,10 +3,17 @@
 //  o'zini ham arrayga o'zgartirib qaytarsin.
 //  MASALAN: objectToArray({a: 10, b: 20}) return [["a", 10], ["b", 20]].
 
-// function objectToArray (arr: unknown[]){
-//     return arr === arr
-// }
-// console.log(objectToArray({ a: 10, b: 20}))
+function objectToArray(obj: Record<string, unknown>) {
+  let newArr = [];
+  for (let [key, value] of Object.entries(obj)) {
+    newArr.push([key, value]);
+  }
+  return newArr;
+}
+
+const obj = { a: 10, b: 20 };
+
+console.log(objectToArray({ a: 10, b: 20 }));
 
 // O-TASK
 // Shunday function yozing, u har xil valuelardan iborat array qabul qilsin va array ichidagi sonlar
