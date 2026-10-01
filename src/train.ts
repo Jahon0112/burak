@@ -1,19 +1,34 @@
+// Q-TASK
+// Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string.
+// Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin.
+// MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") return true;
+//  hasProperty({name: "BMW", model: "M3"}, "year") return false.
+function hasProperty(Object: any, String: any) {
+  if (Object[String] !== undefined) {
+    return true;
+  }
+  return false;
+  //   return String in Object;
+}
+console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
+console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));
+
 // P-TASK:
 // Shunday function yozingki, u object qabul qilsin, va uning elementlarini ham,
 //  o'zini ham arrayga o'zgartirib qaytarsin.
 //  MASALAN: objectToArray({a: 10, b: 20}) return [["a", 10], ["b", 20]].
 
-function objectToArray(obj: Record<string, unknown>) {
-  let newArr = [];
-  for (let [key, value] of Object.entries(obj)) {
-    newArr.push([key, value]);
-  }
-  return newArr;
-}
+// function objectToArray(obj: Record<string, unknown>) {
+//   let newArr = [];
+//   for (let [key, value] of Object.entries(obj)) {
+//     newArr.push([key, value]);
+//   }
+//   return newArr;
+// }
 
-const obj = { a: 10, b: 20 };
+// const obj = { a: 10, b: 20 };
 
-console.log(objectToArray({ a: 10, b: 20 }));
+// console.log(objectToArray({ a: 10, b: 20 }));
 
 // O-TASK
 // Shunday function yozing, u har xil valuelardan iborat array qabul qilsin va array ichidagi sonlar
@@ -72,3 +87,25 @@ console.log(objectToArray({ a: 10, b: 20 }));
 // }
 
 // console.log(consgetSquareNumbers([1, 2, 3, 4, 5]));
+
+/*
+Project Standards:
+-Logging standards:
+-Naming standards:
+functions, method, variables => CAMEL
+classes => PASCAL
+folder, file => KEBAB
+css => SNAKE
+-Error handling
+ */
+
+/*
+Traditinal Api
+Rest Api
+GraphQL Api
+*/
+
+/*
+Tradtional Frontend Development(FD) => BSSR(Adminka) =>EJS
+Modern Frontend Development => SPA(Users' applications) => React
+*/
