@@ -109,3 +109,7 @@ GraphQL Api
 Tradtional Frontend Development(FD) => BSSR(Adminka) =>EJS
 Modern Frontend Development => SPA(Users' applications) => React
 */
+/*
+request join
+self destroy
+*/

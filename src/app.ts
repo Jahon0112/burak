@@ -9,24 +9,25 @@ import session from "express-session";
 import ConeectMongoDB from "connect-mongodb-session";
 
 const MongoDBStore = ConeectMongoDB(session);
-const store = new MongoDBStore({
+export const store = new MongoDBStore({
   uri: String(process.env.MONGO_URL),
   collection: "sessions",
 });
 
 /**1-ENTRANCE**/
-const app = express();
-console.log("__dirname:", __dirname);
+export const app = express();
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan(MORGAN_FORMAT));
-/**2-SESSIONS**/
+
+//**2_SESSIONS**/
+
 app.use(
   session({
     secret: String(process.env.SESSION_SECRET),
     cookie: {
-      maxAge: 1000 * 60 * 60 * 3, // 3 hours
+      maxAge: 1000 * 3600 * 6, // 6hrs
     },
     store: store,
     resave: true,
