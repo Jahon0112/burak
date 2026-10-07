@@ -1,14 +1,33 @@
-// R-TASK
-// Shunday function yozing, u string parametrga ega bolsin.
-//  String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini number holatda qaytarsin.
-//   MASALAN: calculate("1+3") return 4.
+// S-TASK
+// Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va
+//  osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin.
+//  MASALAN: missingNumber([3, 0, 1]) return 2.
 
-function calculate(str: string): number {
-  const [num1, num2] = str.split("+").map(Number);
-  return num1 + num2;
+function missingNumber(nums: number[]): number {
+  const sorted = [...nums].sort((a, b) => a - b);
+
+  for (let i = 0; i < sorted.length; i++) {
+    if (sorted[i] !== i) {
+      return i;
+    }
+  }
+
+  return sorted.length;
 }
 
-console.log(calculate("1+3"));
+console.log(missingNumber([3, 0, 1]));
+
+// R-TASK
+// // Shunday function yozing, u string parametrga ega bolsin.
+// //  String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini number holatda qaytarsin.
+// //   MASALAN: calculate("1+3") return 4.
+
+// function calculate(str: string): number {
+//   const [num1, num2] = str.split("+").map(Number);
+//   return num1 + num2;
+// }
+
+// console.log(calculate("1+3"));
 
 // Q-TASK
 // Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string.
@@ -100,7 +119,7 @@ console.log(calculate("1+3"));
 
 // console.log(consgetSquareNumbers([1, 2, 3, 4, 5]));
 
-/*
+/*Project Standarts:
 Project Standards:
 -Logging standards:
 -Naming standards:
@@ -111,17 +130,23 @@ css => SNAKE
 -Error handling
  */
 
-/*
+/*Request:
 Traditinal Api
 Rest Api
 GraphQL Api
 */
 
-/*
+/*Frontend development:
 Tradtional Frontend Development(FD) => BSSR(Adminka) =>EJS
 Modern Frontend Development => SPA(Users' applications) => React
 */
-/*
+/*Cookies:
 request join
 self destroy
 */
+
+/*Validation:
+ Frontend Validation
+ Backend Validation
+ Database Validation
+ */
