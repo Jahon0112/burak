@@ -1,6 +1,10 @@
 import { Request, Response } from "express";
 import Errors from "../libs/Error";
 import { T } from "../libs/types/common";
+import ProductService from "../models/product.service";
+import { AdminRequest } from "../libs/types/member";
+
+const productService = new ProductService();
 
 const productController: T = {};
 
