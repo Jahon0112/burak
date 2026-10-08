@@ -49,7 +49,10 @@ restaurantController.processSignup = async (
 ) => {
   try {
     console.log("processSignup");
+    const file = req.file;
+
     const newMember: MemberInput = req.body;
+    newMember.memberImage = file?.path;
     newMember.memberType = MemberType.RESTAURANT;
     const result = await memberService.processSignup(newMember);
 
