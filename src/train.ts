@@ -1,21 +1,56 @@
-// S-TASK
-// Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va
-//  osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin.
-//  MASALAN: missingNumber([3, 0, 1]) return 2.
+// T-TASK
+// Shunday function yozing, u sonlardan tashkil topgan 2 ta array qabul qilsin
+// va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin.
+//  MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]) return [0,3,4,4,6,30,31].
 
-function missingNumber(nums: number[]): number {
-  const sorted = [...nums].sort((a, b) => a - b);
+function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+  const merged: number[] = [];
+  let i = 0;
+  let j = 0;
 
-  for (let i = 0; i < sorted.length; i++) {
-    if (sorted[i] !== i) {
-      return i;
+  while (i < arr1.length && j < arr2.length) {
+    if (arr1[i] <= arr2[j]) {
+      merged.push(arr1[i]);
+      i++;
+    } else {
+      merged.push(arr2[j]);
+      j++;
     }
   }
 
-  return sorted.length;
+  while (i < arr1.length) {
+    merged.push(arr1[i]);
+    i++;
+  }
+
+  while (j < arr2.length) {
+    merged.push(arr2[j]);
+    j++;
+  }
+
+  return merged;
 }
 
-console.log(missingNumber([3, 0, 1]));
+console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+
+// S-TASK
+// // Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va
+// //  osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin.
+// //  MASALAN: missingNumber([3, 0, 1]) return 2.
+
+// function missingNumber(nums: number[]): number {
+//   const sorted = [...nums].sort((a, b) => a - b);
+
+//   for (let i = 0; i < sorted.length; i++) {
+//     if (sorted[i] !== i) {
+//       return i;
+//     }
+//   }
+
+//   return sorted.length;
+// }
+
+// console.log(missingNumber([3, 0, 1]));
 
 // R-TASK
 // // Shunday function yozing, u string parametrga ega bolsin.
