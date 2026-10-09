@@ -10,7 +10,7 @@ const productSchema = new Schema(
   {
     productStatus: {
       type: String,
-      enum: Object.values(ProductStatus),
+      enum: ProductStatus,
       default: ProductStatus.PAUSE,
     },
 
@@ -65,7 +65,7 @@ const productSchema = new Schema(
 );
 
 productSchema.index(
-  { producName: 1, productSize: 1, productVolume: 1 },
+  { productName: 1, productSize: 1, productVolume: 1 },
   { unique: true },
 );
 export default mongoose.model("Product", productSchema);
