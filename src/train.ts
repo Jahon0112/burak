@@ -1,37 +1,46 @@
-// T-TASK
-// Shunday function yozing, u sonlardan tashkil topgan 2 ta array qabul qilsin
-// va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin.
-//  MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]) return [0,3,4,4,6,30,31].
+// U-TASK
+// Shunday function yozing, uni number parametri bolsin va 0 dan berilgan parametrgacha bolgan
+//  oraliqdagi faqat toq sonlar nechtaligini return qilsin.
+// MASALAN: sumOdds(9) return 4; sumOdds(11) return 5.
 
-function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
-  const merged: number[] = [];
-  let i = 0;
-  let j = 0;
-
-  while (i < arr1.length && j < arr2.length) {
-    if (arr1[i] <= arr2[j]) {
-      merged.push(arr1[i]);
-      i++;
-    } else {
-      merged.push(arr2[j]);
-      j++;
-    }
-  }
-
-  while (i < arr1.length) {
-    merged.push(arr1[i]);
-    i++;
-  }
-
-  while (j < arr2.length) {
-    merged.push(arr2[j]);
-    j++;
-  }
-
-  return merged;
+function sumOdds(num: number) {
+  return Math.floor(num / 2);
 }
+console.log(sumOdds(9));
+// // T-TASK
+// // Shunday function yozing, u sonlardan tashkil topgan 2 ta array qabul qilsin
+// // va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin.
+// //  MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]) return [0,3,4,4,6,30,31].
 
-console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+// function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+//   const merged: number[] = [];
+//   let i = 0;
+//   let j = 0;
+
+//   while (i < arr1.length && j < arr2.length) {
+//     if (arr1[i] <= arr2[j]) {
+//       merged.push(arr1[i]);
+//       i++;
+//     } else {
+//       merged.push(arr2[j]);
+//       j++;
+//     }
+//   }
+
+//   while (i < arr1.length) {
+//     merged.push(arr1[i]);
+//     i++;
+//   }
+
+//   while (j < arr2.length) {
+//     merged.push(arr2[j]);
+//     j++;
+//   }
+
+//   return merged;
+// }
+
+// console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
 
 // S-TASK
 // // Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va
