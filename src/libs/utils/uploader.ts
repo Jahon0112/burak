@@ -14,6 +14,7 @@ function getTargetImageStorage(address: any) {
     },
   });
 }
+
 const makeUploader = (address: string) => {
   const storage = getTargetImageStorage(address);
   return multer({ storage: storage });
