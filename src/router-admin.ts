@@ -40,7 +40,7 @@ routerAdmin.post(
 /**User */
 routerAdmin.get(
   "/user/all",
-  restaurantController.verifyRestaurant,
+  restaurantController.verifyRestaurant, //Authorization Middleware
   restaurantController.getUsers,
 );
 
@@ -48,6 +48,13 @@ routerAdmin.post(
   "/user/edit",
   restaurantController.verifyRestaurant,
   restaurantController.updateChosenUser,
+);
+
+/**User */
+routerAdmin.get(
+  "user",
+  restaurantController.verifyRestaurant,
+  restaurantController.getUsers,
 );
 
 export default routerAdmin;
