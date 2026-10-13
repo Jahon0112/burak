@@ -1,12 +1,25 @@
-// U-TASK
-// Shunday function yozing, uni number parametri bolsin va 0 dan berilgan parametrgacha bolgan
-//  oraliqdagi faqat toq sonlar nechtaligini return qilsin.
-// MASALAN: sumOdds(9) return 4; sumOdds(11) return 5.
-
-function sumOdds(num: number) {
-  return Math.floor(num / 2);
+// V-TASK
+// Shunday function yozing, uni string parametri bolsin va stringdagi harf
+// va u harf necha marta takrorlangani sonidan tashkil topgan object qaytarsin.
+// MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}.
+function countChars(str: String): { [key: string]: number } {
+  const result: { [key: string]: number } = {};
+  for (const char of str) {
+    result[char] = (result[char] || 0) + 1;
+  }
+  return result;
 }
-console.log(sumOdds(9));
+console.log(countChars("hello"));
+
+// // U-TASK
+// // Shunday function yozing, uni number parametri bolsin va 0 dan berilgan parametrgacha bolgan
+// //  oraliqdagi faqat toq sonlar nechtaligini return qilsin.
+// // MASALAN: sumOdds(9) return 4; sumOdds(11) return 5.
+
+// function sumOdds(num: number) {
+//   return Math.floor(num / 2);
+// }
+// console.log(sumOdds(9));
 // // T-TASK
 // // Shunday function yozing, u sonlardan tashkil topgan 2 ta array qabul qilsin
 // // va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin.
