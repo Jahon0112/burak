@@ -2,10 +2,10 @@ import express from "express";
 import path from "path";
 import router from "./router";
 import routerAdmin from "./router-admin";
-import morgan from "morgan";
+import morgan from "morgan"; //morgan resposible the request form express for debuting and monitoring
 import { MORGAN_FORMAT } from "./libs/config";
 
-import session from "express-session";
+import session from "express-session"; //memorize the users between requests
 import ConeectMongoDB from "connect-mongodb-session";
 import { T } from "./libs/types/common";
 
@@ -22,9 +22,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan(MORGAN_FORMAT));
 
-//**2_SESSIONS**/
+//**2-SESSIONS**/
 
 app.use(
+  // user so"rovlarni eslab qolish uchun kerak
   session({
     secret: String(process.env.SESSION_SECRET),
     cookie: {
@@ -32,7 +33,7 @@ app.use(
     },
     store: store,
     resave: true,
-    saveUninitialized: true,
+    saveUninitialized: true, //bosh sessionni ham eslab qolish uchun
   }),
 );
 
