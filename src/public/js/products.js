@@ -21,27 +21,49 @@ $(function () {
     $("#process-btn").css("display", "flex");
   });
 
-  function validateForm() {
-    const productName = $(".product-name").val();
-    const productPrice = $(".product-price").val();
-    const productLeftCount = $(".product-left-count").val();
-    const productCollection = $(".product-collection").val();
-    const productDesc = $(".product-desc").val();
-    const productStatus = $(".product-status").val();
+  $(".new-product-status").on("change", async function (e) {
+    const id = e.target.id;
+    const ProductStatus = $(`#${id}.new-product-status`).val();
+    console.log("id:", id);
+    console.log("ProductStatus:", ProductStatus);
 
-    if (
-      productName === "" ||
-      productPrice === "" ||
-      productLeftCount === "" ||
-      productCollection === "" ||
-      productDesc === "" ||
-      productStatus === ""
-    ) {
-      alert("Please insert all details");
-      return false;
-    } else return true;
-  }
+    try {
+      const response = await axios.post(`/admin/product/${id}`, {
+        ProductStatus: ProductStatus,
+      });
+      console.log("response:", response);
+      const result = response.data;
+      if (result.data) {
+        console.log("Product updated!");
+        $(".new-product-status").blur();
+      } else alert("Product update failed!");
+    } catch (err) {
+      console.log(err);
+      alert("Product update failed!");
+    }
+  });
 });
+
+function validateForm() {
+  const productName = $(".product-name").val();
+  const productPrice = $(".product-price").val();
+  const productLeftCount = $(".product-left-count").val();
+  const productCollection = $(".product-collection").val();
+  const productDesc = $(".product-desc").val();
+  const productStatus = $(".product-status").val();
+
+  if (
+    productName === "" ||
+    productPrice === "" ||
+    productLeftCount === "" ||
+    productCollection === "" ||
+    productDesc === "" ||
+    productStatus === ""
+  ) {
+    alert("Please insert all details");
+    return false;
+  } else return true;
+}
 function previewFileHandler(input, order) {
   const imgClassName = input.className;
   console.log("input:", input);
