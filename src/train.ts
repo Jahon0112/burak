@@ -1,16 +1,36 @@
-// V-TASK
-//git commit -m "feat:^
-// Shunday function yozing, uni string parametri bolsin va stringdagi harf
-// va u harf necha marta takrorlangani sonidan tashkil topgan object qaytarsin.
-// MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}.
-function countChars(str: String): { [key: string]: number } {
-  const result: { [key: string]: number } = {};
-  for (const char of str) {
-    result[char] = (result[char] || 0) + 1;
+// W-TASK
+// Shunday function yozing, uni array va number parametrlari bolsin.
+// Function arrayni numberda berilgan uzunlikda kesib bolaklarga ajratilgan
+// array holatida qaytarsin.
+//  MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3)
+//  return [[1,2,3], [4,5,6], [7,8,9], [10]].
+
+function chunkArray<T>(array: T[], size: number): T[][] {
+  if (!Number.isInteger(size) || size <= 0) {
+    throw new RangeError("Chunk size must be a positive integer");
   }
-  return result;
+
+  const chunks: T[][] = [];
+  for (let i = 0; i < array.length; i += size) {
+    chunks.push(array.slice(i, i + size));
+  }
+  return chunks;
 }
-console.log(countChars("hello"));
+
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+// // V-TASK
+// //git commit -m "feat:^
+// // Shunday function yozing, uni string parametri bolsin va stringdagi harf
+// // va u harf necha marta takrorlangani sonidan tashkil topgan object qaytarsin.
+// // MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}.
+// function countChars(str: String): { [key: string]: number } {
+//   const result: { [key: string]: number } = {};
+//   for (const char of str) {
+//     result[char] = (result[char] || 0) + 1;
+//   }
+//   return result;
+// }
+// console.log(countChars("hello"));
 
 // // U-TASK
 // // Shunday function yozing, uni number parametri bolsin va 0 dan berilgan parametrgacha bolgan
