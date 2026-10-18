@@ -23,13 +23,13 @@ $(function () {
 
   $(".new-product-status").on("change", async function (e) {
     const id = e.target.id;
-    const ProductStatus = $(`#${id}.new-product-status`).val();
+    const productStatus = $(`#${id}.new-product-status`).val();
     console.log("id:", id);
-    console.log("ProductStatus:", ProductStatus);
+    console.log("productStatus:", productStatus);
 
     try {
       const response = await axios.post(`/admin/product/${id}`, {
-        ProductStatus: ProductStatus,
+        productStatus: productStatus,
       });
       console.log("response:", response);
       const result = response.data;
