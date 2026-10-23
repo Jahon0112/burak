@@ -1,35 +1,46 @@
-// X-TASK
-// Shunday function yozing, uni object va string parapetrlari
-//  bolsin. Function string parametri object ichida necha
-//  marotaba takrorlanganligini qaytarsin (nested object bolsa ham sanasin).
-//  MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model')
-//   return 2.
+// Y-TASK
+// Shunday function yozing, uni 2 ta array parapetri bolsin.
+//  Function ikkala arrayda ham ishtirok etgan qiymatlarni bir arrayda qaytarsin.
+//   MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3].
 
-function countOccurrences(
-  obj: Record<string, unknown>,
-  property: string,
-): number {
-  let count = 0;
-
-  for (const [key, value] of Object.entries(obj)) {
-    if (key === property) {
-      count++;
-    }
-
-    if (value !== null && typeof value === "object") {
-      count += countOccurrences(value as Record<string, unknown>, property);
-    }
-  }
-
-  return count;
+function findIntersection<T>(first: T[], second: T[]): T[] {
+	return first.filter((value) => second.includes(value));
 }
 
-console.log(
-  countOccurrences(
-    { model: "Bugatti", steer: { model: "HANKOOK", size: 30 } },
-    "model",
-  ),
-);
+console.log(findIntersection([1, 2, 3], [3, 2, 0]));
+
+// // X-TASK
+// // Shunday function yozing, uni object va string parapetrlari
+// //  bolsin. Function string parametri object ichida necha
+// //  marotaba takrorlanganligini qaytarsin (nested object bolsa ham sanasin).
+// //  MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model')
+// //   return 2.
+
+// function countOccurrences(
+//   obj: Record<string, unknown>,
+//   property: string,
+// ): number {
+//   let count = 0;
+
+//   for (const [key, value] of Object.entries(obj)) {
+//     if (key === property) {
+//       count++;
+//     }
+
+//     if (value !== null && typeof value === "object") {
+//       count += countOccurrences(value as Record<string, unknown>, property);
+//     }
+//   }
+
+//   return count;
+// }
+
+// console.log(
+//   countOccurrences(
+//     { model: "Bugatti", steer: { model: "HANKOOK", size: 30 } },
+//     "model",
+//   ),
+// );
 
 // // W-TASk
 // // Shunday function yozing, uni array va number parametrlari bolsin.
