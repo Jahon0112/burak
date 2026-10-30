@@ -25,7 +25,6 @@ app.use(cookieParser());
 app.use(morgan(MORGAN_FORMAT));
 
 //**2-SESSIONS**/
-
 app.use(
   // user so"rovlarni eslab qolish uchun kerak
   session({
