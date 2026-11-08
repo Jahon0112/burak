@@ -1,4 +1,4 @@
-import MemberModule from "../schema/Member.module";
+import MemberModule from "../schema/Member.model";
 import {
   LoginInput,
   Member,
