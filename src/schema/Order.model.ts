@@ -25,3 +25,5 @@ const orderSchema = new Schema(
   },
   { timestamps: true, collection: "orders" },
 );
+
+export default mongoose.model("Order", orderSchema);

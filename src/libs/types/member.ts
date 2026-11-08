@@ -47,6 +47,7 @@ export interface MemberUpdateInput {
 }
 
 export interface ExtendedRequest extends Request {
+  orderService: any;
   member: Member;
   file: Express.Multer.File;
   files: Express.Multer.File[];
