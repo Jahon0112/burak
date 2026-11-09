@@ -72,7 +72,7 @@ class OrderService {
     const memberId = shapeIntoMongooseObjectId(member._id);
     const matches = { memberId: memberId, orderStatus: inquiry.orderStatus };
 
-    const result = this.orderModel
+    const result = await this.orderModel
       .aggregate([
         { $match: matches },
         { $sort: { updatedAt: -1 } },
@@ -121,7 +121,7 @@ class OrderService {
 
     if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
     if (orderStatus === OrderStatus.PROCESS) {
-      await this.memberService.addUserPoint(member, 1);
+      await this.memberService.addUserPoint(member, +1);
     }
     return result;
   }
