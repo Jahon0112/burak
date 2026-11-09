@@ -80,7 +80,7 @@ class OrderService {
         { $limit: inquiry.limit },
         {
           $lookup: {
-            from: "orderItems",
+            from: "orderitems",
             localField: "_id",
             foreignField: "orderId",
             as: "orderItems",
@@ -89,7 +89,7 @@ class OrderService {
         {
           $lookup: {
             from: "products",
-            localField: "orderItems.productId ",
+            localField: "orderItems.productId",
             foreignField: "_id",
             as: "productData",
           },
@@ -97,6 +97,7 @@ class OrderService {
       ])
       .exec();
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+    console.log(result);
     return result;
   }
 

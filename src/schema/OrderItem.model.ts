@@ -19,7 +19,7 @@ const orderItemSchema = new Schema(
       ref: "Product",
     },
   },
-  { timestamps: true, collection: "orderItems" },
+  { timestamps: true },
 );
 
 export default mongoose.model("OrderItem", orderItemSchema);
